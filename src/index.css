@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-night-950 text-sand-100 font-sans antialiased;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    @apply bg-ember-500 text-white;
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-ember-600 to-ember-500
+      px-7 py-3.5 text-sm font-semibold uppercase tracking-wide text-white shadow-lg shadow-ember-600/30
+      transition-all duration-300 hover:shadow-ember-500/50 hover:brightness-110 active:scale-95;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/25 bg-white/5 px-7 py-3.5
+      text-sm font-semibold uppercase tracking-wide text-white backdrop-blur-sm transition-all duration-300
+      hover:border-white/50 hover:bg-white/10 active:scale-95;
+  }
+
+  .section-title {
+    @apply font-display text-4xl uppercase leading-none tracking-tight sm:text-5xl;
+  }
+
+  .card {
+    @apply rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-sm;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0d0805;
+}
+::-webkit-scrollbar-thumb {
+  background: #c0430a;
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #f2691f;
+}
+
+.text-gradient-ember {
+  background: linear-gradient(180deg, #ff8a4c 0%, #e2560f 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero-vignette {
+  background: radial-gradient(
+      120% 90% at 70% 40%,
+      transparent 0%,
+      rgba(13, 8, 5, 0.35) 55%,
+      rgba(13, 8, 5, 0.92) 100%
+    ),
+    linear-gradient(180deg, rgba(13, 8, 5, 0.7) 0%, transparent 25%, rgba(13, 8, 5, 0.6) 100%);
+}
