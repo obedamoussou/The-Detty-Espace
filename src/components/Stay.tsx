@@ -1,19 +1,12 @@
 import { motion } from 'framer-motion'
-import { Check, MapPin } from 'lucide-react'
+import { MapPin } from 'lucide-react'
 import { EVENT } from '../data/content'
 import { IMAGES } from '../data/images'
 import Reveal from './Reveal'
-
-const roomInclusions = [
-  '1 nuit en chambre standard',
-  'Buffet Petit-déjeuner',
-  'Buffet Déjeuner',
-  'Buffet Dîner',
-]
-
-const venueThumbs = [IMAGES.pool, IMAGES.beachAerial, IMAGES.venue2, IMAGES.hotelRoom]
+import Lieu from "../../public/lieu.jpeg"
 
 export default function Stay() {
+  // const newLocal = ""
   return (
     <section className="py-20 sm:py-28">
       <div className="container-x grid gap-8 lg:grid-cols-2">
@@ -25,7 +18,7 @@ export default function Stay() {
                 Hébergement
               </h3>
             </div>
-            <div className="grid gap-5 px-6 pb-6 sm:grid-cols-2 sm:px-8 sm:pb-8">
+            <div className="grid gap-5 px-6 pb-6 ">
               <div className="overflow-hidden rounded-xl">
                 <img
                   src={IMAGES.room}
@@ -41,7 +34,7 @@ export default function Stay() {
                 <p className="text-xs uppercase tracking-wide text-sand-100/60">
                   Jusqu'à 2 personnes
                 </p>
-                <p className="mt-4 text-xs font-semibold uppercase tracking-wide text-sand-100/70">
+                {/* <p className="mt-4 text-xs font-semibold uppercase tracking-wide text-sand-100/70">
                   Inclus :
                 </p>
                 <ul className="mt-2 space-y-1.5">
@@ -56,7 +49,7 @@ export default function Stay() {
                   <span className="inline-block rounded-lg bg-gradient-to-r from-ember-600 to-ember-500 px-5 py-2.5 font-display text-lg tracking-tight text-white">
                     {EVENT.price} {EVENT.currency}
                   </span>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
@@ -72,25 +65,20 @@ export default function Stay() {
               plage, piscine, chambres confortables et espaces de loisirs.
             </p>
 
-            <div className="mt-5 grid grid-cols-4 gap-2.5">
-              {venueThumbs.map((src, i) => (
-                <motion.div
-                  key={src}
-                  initial={{ opacity: 0, y: 12 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: i * 0.08 }}
-                  className="aspect-square overflow-hidden rounded-lg"
-                >
-                  <img
-                    src={src}
-                    alt={`Vue ${i + 1}`}
-                    loading="lazy"
-                    className="h-full w-full object-cover transition-transform duration-500 hover:scale-110"
-                  />
-                </motion.div>
-              ))}
-            </div>
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="mt-5 overflow-hidden rounded-xl"
+            >
+              <img
+                src={Lieu}
+                alt={EVENT.hotel}
+                loading="lazy"
+                className="aspect-[16/9] w-full object-cover transition-transform duration-500 hover:scale-105"
+              />
+            </motion.div>
 
             <a
               href={`https://www.google.com/maps/search/${encodeURIComponent(

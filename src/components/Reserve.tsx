@@ -1,13 +1,14 @@
 import { motion } from 'framer-motion'
-import { ArrowRight, Bed, Utensils, Music, Dumbbell, Lock } from 'lucide-react'
+import { ArrowRight, Bed, Utensils, Music } from 'lucide-react'
 import { EVENT } from '../data/content'
+import Basketball from './icons/Basketball'
 import Reveal from './Reveal'
 
 const perks = [
   { icon: Bed, label: 'Hébergement' },
   { icon: Utensils, label: 'Tous les repas' },
   { icon: Music, label: 'Activités & soirées' },
-  { icon: Dumbbell, label: 'Accès aux infrastructures' },
+  { icon: Basketball, label: 'Accès aux infrastructures' },
 ]
 
 export default function Reserve() {
@@ -67,7 +68,7 @@ export default function Reserve() {
                 <a href={`mailto:${EVENT.email}`} className="btn-primary mt-6 w-full">
                   Je réserve maintenant <ArrowRight size={16} />
                 </a>
-                <div className="mt-5 flex items-center justify-center gap-2 text-xs text-sand-100/60">
+                {/* <div className="mt-5 flex items-center justify-center gap-2 text-xs text-sand-100/60">
                   <Lock size={13} className="text-ember-400" /> Paiement 100% sécurisé
                 </div>
                 <div className="mt-3 flex items-center justify-center gap-2">
@@ -79,7 +80,7 @@ export default function Reserve() {
                       {p}
                     </span>
                   ))}
-                </div>
+                </div> */}
               </div>
             </Reveal>
           </div>

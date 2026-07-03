@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { NAV_LINKS } from '../data/content'
-import Logo from './Logo'
+import Logo from '../../public/Logo.png'
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -35,7 +35,7 @@ export default function Navbar() {
     >
       <nav className="container-x flex items-center justify-between py-4">
         <a href="#accueil" className="shrink-0">
-          <Logo />
+          <img src={Logo} alt="Logo" className='h-20' />
         </a>
 
         <ul className="hidden items-center gap-7 lg:flex">
@@ -52,11 +52,7 @@ export default function Navbar() {
           ))}
         </ul>
 
-        <a
-          href="#reserver"
-          onClick={(e) => handleNav(e, '#reserver')}
-          className="btn-primary hidden shrink-0 !px-5 !py-2.5 !text-xs sm:inline-flex"
-        >
+        <a href="#reserver" className="btn-primary hidden shrink-0 !px-5 !py-2.5 !text-xs sm:inline-flex">
           Je réserve ma place
         </a>
 
@@ -83,7 +79,7 @@ export default function Navbar() {
                 <li key={l.href}>
                   <a
                     href={l.href}
-                    onClick={(e) => handleNav(e, l.href)}
+                    onClick={() => setOpen(false)}
                     className="block rounded-lg px-3 py-3 text-sm font-semibold uppercase tracking-wider text-sand-100/85 transition-colors hover:bg-white/5 hover:text-ember-400"
                   >
                     {l.label}
@@ -91,7 +87,7 @@ export default function Navbar() {
                 </li>
               ))}
               <li className="mt-2 px-3">
-                <a href="#reserver" onClick={(e) => handleNav(e, '#reserver')} className="btn-primary w-full">
+                <a href="#reserver" onClick={() => setOpen(false)} className="btn-primary w-full">
                   Je réserve ma place
                 </a>
               </li>

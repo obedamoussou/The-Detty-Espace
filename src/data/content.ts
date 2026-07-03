@@ -2,7 +2,6 @@ import {
   Bed,
   Utensils,
   Music,
-  Dumbbell,
   Camera,
   Waves,
   Flame,
@@ -16,12 +15,13 @@ import {
   Sparkles,
   type LucideIcon,
 } from 'lucide-react'
+import Basketball from '../components/icons/Basketball'
 
 export const EVENT = {
   name: 'The Detty Escape',
   tagline: "Termine l'année autrement.",
-  intro: "2 jours. 1 nuit. Une seule mission : vivre le meilleur dernier week-end de l'année.",
-  dates: '29 - 30 Décembre 2026',
+  intro: "Les meilleures 24h de l’année pour terminer en beauté",
+  dates: '29-30 Décembre 2026',
   // Countdown target date
   target: '2026-12-29T14:00:00',
   hotel: 'Hotel Millenium Popo Beach',
@@ -31,7 +31,7 @@ export const EVENT = {
   price: '230.000',
   currency: 'FCFA',
   phone: '+229 01 23 45 67 89',
-  email: 'thedettyescape@gmail.com',
+  email: 'lejardinconcept@gmail.com',
 }
 
 export const NAV_LINKS = [
@@ -53,7 +53,7 @@ export const HERO_TAGS: string[] = [
   'Piscine',
   'Tennis',
   'Basketball',
-  'Bonne ambiance',
+  'Repas',
 ]
 
 export const STRIP_FEATURES: Feature[] = [
@@ -61,7 +61,7 @@ export const STRIP_FEATURES: Feature[] = [
   { icon: Bed, label: 'Hébergement' },
   { icon: Coffee, label: 'Tous les repas' },
   { icon: Music, label: 'Activités & Soirées' },
-  { icon: Dumbbell, label: 'Infrastructures' },
+  { icon: Basketball, label: 'Infrastructures' },
   { icon: Camera, label: 'Souvenirs inoubliables' },
 ]
 
@@ -79,19 +79,20 @@ export const INCLUSIONS: string[] = [
 export type Slot = { time: string; title: string; sub?: string; highlight?: boolean }
 
 export const DAY_ONE: Slot[] = [
-  { time: '14h00', title: 'Accueil & Check-in' },
-  { time: '16h00', title: 'Installation & découverte du complexe' },
-  { time: '17h00', title: 'Pool Party', highlight: true },
-  { time: '20h00', title: 'Buffet Dîner' },
-  { time: '22h00', title: 'Feu de plage', highlight: true },
-  { time: '00h00', title: 'After Party en boîte de nuit privatisée', highlight: true },
+  { time: '10h00', title: 'Depart du convoi de Cotonou' },
+  { time: '12h00', title: 'Arrivée à Grand Popo et installation' },
+  { time: '13h00', title: 'Buffet Dejeuner' },
+  { time: '15h00', title: 'Pool Party' },
+  { time: '18h00', title: 'Temps libre', },
+  { time: '20h00', title: 'Buffet Diner', },
+  { time: '22h00', title: 'Feu de plage', },
+  { time: '00h00', title: 'Boite de nuit privatisée', },
 ]
 
 export const DAY_TWO: Slot[] = [
-  { time: '08h00', title: 'Petit-déjeuner buffet' },
-  { time: '10h00', title: 'Temps libre', sub: 'Piscine • Tennis • Basketball • Plage' },
-  { time: '13h00', title: 'Déjeuner buffet' },
-  { time: '15h00', title: 'Check-out' },
+  { time: '08h00', title: 'Buffet Petit Dejeuner' },
+  { time: '10h00', title: 'Temps libre' },
+  { time: '12h00', title: 'Check out et depart du convoi pour Cotonou' },
 ]
 
 export type Guest = { icon: LucideIcon; label: string }
@@ -127,7 +128,7 @@ export const FAQS: Faq[] = [
   },
   {
     q: 'Puis-je venir seul(e) ?',
-    a: 'Absolument ! L\'événement est pensé pour rencontrer de nouvelles personnes dans une ambiance conviviale. Beaucoup de participants viennent seuls.',
+    a: 'Absolument ! L\'événement est pensé pour rencontrer de nouvelles personnes dans une ambiance conviviale.',
   },
   {
     q: 'Puis-je réserver avec un(e) ami(e) ?',

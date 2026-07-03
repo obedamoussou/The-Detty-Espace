@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Calendar, MapPin, Hotel, ArrowRight, Users } from 'lucide-react'
+import { Calendar, MapPin, Hotel, ArrowRight } from 'lucide-react'
 import { EVENT, HERO_TAGS } from '../data/content'
 import { IMAGES } from '../data/images'
 import Countdown from './Countdown'
@@ -14,8 +14,6 @@ const fadeUp = {
 }
 
 export default function Hero() {
-  const roomsPct = Math.round((EVENT.roomsLeft / EVENT.roomsTotal) * 100)
-
   return (
     <section id="accueil" className="relative min-h-screen w-full overflow-hidden">
       {/* Background */}
@@ -143,20 +141,20 @@ export default function Hero() {
 
             <div className="my-5 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent" />
 
-            <div className="flex items-center gap-2 text-sm font-medium text-sand-50">
+            {/* <div className="flex items-center gap-2 text-sm font-medium text-sand-50">
               <Users size={18} className="text-ember-400" />
               <span>
                 <strong className="font-bold text-white">{EVENT.roomsLeft}</strong> chambres restantes
               </span>
-            </div>
-            <div className="mt-3 h-2.5 w-full overflow-hidden rounded-full bg-white/10">
+            </div> */}
+            {/* <div className="mt-3 h-2.5 w-full overflow-hidden rounded-full bg-white/10">
               <motion.div
                 initial={{ width: 0 }}
                 animate={{ width: `${roomsPct}%` }}
                 transition={{ duration: 1.2, delay: 1, ease: 'easeOut' }}
                 className="h-full rounded-full bg-gradient-to-r from-ember-600 to-ember-400"
               />
-            </div>
+            </div> */}
           </motion.div>
         </div>
       </div>
