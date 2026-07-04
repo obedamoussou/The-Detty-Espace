@@ -13,31 +13,29 @@ export default function BackgroundMusic() {
     if (!audio) return
     audio.volume = 0.35
 
-    // Événements qui comptent comme « première interaction » pour débloquer le son.
-    const events = ['pointerdown', 'touchstart', 'keydown', 'scroll'] as const
+    // Toute interaction utilisateur peut débloquer le son.
+    const events = ['pointerdown', 'click', 'touchstart', 'keydown', 'scroll', 'wheel'] as const
 
     const cleanup = () =>
-      events.forEach((ev) => window.removeEventListener(ev, start))
+      events.forEach((ev) => window.removeEventListener(ev, tryPlay))
 
-    function start() {
+    function tryPlay() {
       audio!
         .play()
-        .then(() => setPlaying(true))
-        .catch(() => {})
-      cleanup()
+        .then(() => {
+          setPlaying(true)
+          cleanup() // succès : plus besoin d'écouter
+        })
+        .catch(() => {
+          // Interaction sans « user activation » (ex: scroll molette) :
+          // on garde les écouteurs pour la prochaine interaction.
+        })
     }
 
-    // On tente de jouer dès l'arrivée sur la page. Les navigateurs bloquent
-    // l'autoplay avec son tant que l'utilisateur n'a pas interagi : dans ce cas,
-    // on démarre à la toute première interaction (clic, toucher, scroll, clavier).
-    audio
-      .play()
-      .then(() => setPlaying(true))
-      .catch(() => {
-        events.forEach((ev) =>
-          window.addEventListener(ev, start, { once: true, passive: true }),
-        )
-      })
+    // Tentative dès l'arrivée (souvent bloquée par le navigateur) PUIS
+    // écouteurs posés inconditionnellement : la moindre interaction lance la musique.
+    tryPlay()
+    events.forEach((ev) => window.addEventListener(ev, tryPlay, { passive: true }))
 
     return cleanup
   }, [])
