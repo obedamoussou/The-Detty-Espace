@@ -13,29 +13,37 @@ export default function BackgroundMusic() {
     if (!audio) return
     audio.volume = 0.35
 
-    // Toute interaction utilisateur peut débloquer le son.
+    // 1) Autoplay EN MUET dès le chargement : autorisé par tous les navigateurs,
+    //    donc l'élément joue réellement (en silence) tout de suite.
+    audio.muted = true
+    audio.play().catch(() => {})
+
+    // 2) La moindre interaction (scroll compris) tente de DÉMUTER.
     const events = ['pointerdown', 'click', 'touchstart', 'keydown', 'scroll', 'wheel'] as const
 
     const cleanup = () =>
-      events.forEach((ev) => window.removeEventListener(ev, tryPlay))
+      events.forEach((ev) => window.removeEventListener(ev, onInteract))
 
-    function tryPlay() {
-      audio!
-        .play()
-        .then(() => {
+    function onInteract() {
+      const a = audio!
+      a.muted = false
+      a.play().catch(() => {})
+      // Le scroll molette n'accorde pas toujours le droit au son : on vérifie
+      // juste après si le son est réellement passé.
+      window.setTimeout(() => {
+        if (!a.paused && !a.muted) {
           setPlaying(true)
-          cleanup() // succès : plus besoin d'écouter
-        })
-        .catch(() => {
-          // Interaction sans « user activation » (ex: scroll molette) :
-          // on garde les écouteurs pour la prochaine interaction.
-        })
+          cleanup() // son audible confirmé : on arrête d'écouter
+        } else {
+          // Refusé par le navigateur : on repasse en muet et on continue à
+          // guetter la prochaine interaction (clic, clavier, toucher...).
+          a.muted = true
+          a.play().catch(() => {})
+        }
+      }, 80)
     }
 
-    // Tentative dès l'arrivée (souvent bloquée par le navigateur) PUIS
-    // écouteurs posés inconditionnellement : la moindre interaction lance la musique.
-    tryPlay()
-    events.forEach((ev) => window.addEventListener(ev, tryPlay, { passive: true }))
+    events.forEach((ev) => window.addEventListener(ev, onInteract, { passive: true }))
 
     return cleanup
   }, [])
@@ -43,7 +51,8 @@ export default function BackgroundMusic() {
   const toggle = () => {
     const audio = audioRef.current
     if (!audio) return
-    if (audio.paused) {
+    if (audio.paused || audio.muted) {
+      audio.muted = false
       audio.play().then(() => setPlaying(true)).catch(() => {})
     } else {
       audio.pause()
