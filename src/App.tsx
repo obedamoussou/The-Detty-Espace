@@ -9,6 +9,7 @@ import GuestsReasons from './components/GuestsReasons'
 import Faq from './components/Faq'
 import Reserve from './components/Reserve'
 import Footer from './components/Footer'
+import BackgroundMusic from './components/BackgroundMusic'
 
 export default function App() {
   const { scrollYProgress } = useScroll()
@@ -23,6 +24,7 @@ export default function App() {
       />
 
       <Navbar />
+      <BackgroundMusic />
 
       <main>
         <Hero />

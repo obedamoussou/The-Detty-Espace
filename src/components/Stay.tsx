@@ -1,9 +1,10 @@
 import { motion } from 'framer-motion'
 import { MapPin } from 'lucide-react'
 import { EVENT } from '../data/content'
-import { IMAGES } from '../data/images'
+// import { IMAGES } from '../data/images'
 import Reveal from './Reveal'
 import Lieu from "../../public/lieu.jpeg"
+import Chambre from "../../public/chambre.jpeg"
 
 export default function Stay() {
   // const newLocal = ""
@@ -21,7 +22,7 @@ export default function Stay() {
             <div className="grid gap-5 px-6 pb-6 ">
               <div className="overflow-hidden rounded-xl">
                 <img
-                  src={IMAGES.room}
+                  src={Chambre}
                   alt="Chambre double"
                   loading="lazy"
                   className="h-full min-h-[220px] w-full object-cover"

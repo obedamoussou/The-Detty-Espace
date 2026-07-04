@@ -3,12 +3,16 @@ import { Check, Info } from 'lucide-react'
 import { INCLUSIONS } from '../data/content'
 import { IMAGES } from '../data/images'
 import Reveal from './Reveal'
+import Plage from "../../public/plage.jpeg"
+import Chambre from "../../public/chambre.jpeg"
+import Piscine from "../../public/piscine.jpeg"
+import Feu from "../../public/feu.jpeg"
 
 const gallery = [
-  { src: IMAGES.beachAerial, alt: 'Vue plage', span: '' },
-  { src: IMAGES.hotelRoom, alt: 'Chambre', span: '' },
-  { src: IMAGES.pool, alt: 'Piscine', span: '' },
-  { src: IMAGES.bonfireGroup, alt: 'Feu de plage', span: '' },
+  { src: Plage, alt: 'Plage', span: '' },
+  { src: Chambre, alt: 'Chambre', span: '' },
+  { src: Piscine, alt: 'Piscine', span: '' },
+  { src: Feu, alt: 'Feu de plage', span: '' },
   { src: IMAGES.nightclub, alt: 'Boîte de nuit', span: '' },
   { src: IMAGES.basketball, alt: 'Basketball', span: '' },
 ]

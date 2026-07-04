@@ -3,6 +3,7 @@ import { Calendar, MapPin, Hotel, ArrowRight } from 'lucide-react'
 import { EVENT, HERO_TAGS } from '../data/content'
 // import { IMAGES } from '../data/images'
 import Countdown from './Countdown'
+import StreamingButtons from './StreamingButtons'
 import Back from "../../public/back.jpeg"
 
 const fadeUp = {
@@ -35,7 +36,8 @@ export default function Hero() {
         <div className="grid items-center gap-10 lg:grid-cols-[1.4fr_1fr]">
           {/* Left copy */}
           <div>
-            <motion.div variants={fadeUp} custom={0} initial="hidden" animate="visible">
+            <div>
+              <motion.div variants={fadeUp} custom={0} initial="hidden" animate="visible">
               <span className="mb-3 inline-block font-script text-3xl text-sand-50 sm:text-4xl">The</span>
             </motion.div>
 
@@ -52,6 +54,7 @@ export default function Hero() {
             <motion.div variants={fadeUp} custom={2} initial="hidden" animate="visible">
               <span className="font-script text-6xl text-sand-50 sm:text-7xl">Escape</span>
             </motion.div>
+            </div>
 
             <motion.p
               variants={fadeUp}
@@ -127,12 +130,24 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* Right countdown card */}
-          <motion.div
+          {/* Right column: écoute + compte à rebours */}
+          <div className="flex w-full max-w-sm flex-col gap-4 justify-self-end">
+            {/* Boutons streaming (vrais logos Spotify / Apple Music) — desktop uniquement,
+                sur mobile/tablette ils sont en bas du menu hamburger */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+              className="hidden justify-end lg:flex"
+            >
+              <StreamingButtons />
+            </motion.div>
+
+            <motion.div
             initial={{ opacity: 0, y: 30, scale: 0.96 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="card w-full max-w-sm justify-self-end p-6 shadow-2xl shadow-black/50 lg:p-7"
+            className="card w-full p-6 shadow-2xl shadow-black/50 lg:p-7"
           >
             <p className="text-center text-xs font-semibold uppercase tracking-[0.25em] text-sand-100/70">
               L'évasion commence dans
@@ -157,7 +172,8 @@ export default function Hero() {
                 className="h-full rounded-full bg-gradient-to-r from-ember-600 to-ember-400"
               />
             </div> */}
-          </motion.div>
+            </motion.div>
+          </div>
         </div>
       </div>
 
