@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { ArrowRight, Bed, Utensils, Music } from 'lucide-react'
+import { ArrowRight, Bed, Utensils, Music, Landmark } from 'lucide-react'
 import { EVENT } from '../data/content'
 import Basketball from './icons/Basketball'
 import Reveal from './Reveal'
@@ -9,6 +9,7 @@ const perks = [
   { icon: Utensils, label: 'Tous les repas' },
   { icon: Music, label: 'Activités & soirées' },
   { icon: Basketball, label: 'Accès aux infrastructures' },
+  { icon: Landmark, label: 'Visite de Ouidah' },
 ]
 
 export default function Reserve() {

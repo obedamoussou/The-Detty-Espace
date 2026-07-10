@@ -7,6 +7,8 @@ import Plage from "../../public/plage.jpeg"
 import Chambre from "../../public/chambre.jpeg"
 import Piscine from "../../public/piscine.jpeg"
 import Feu from "../../public/feu.jpeg"
+import Ouidah from "../../public/ouidah.jpeg"
+import Tennis from "../../public/tenis.jpeg"
 
 const gallery = [
   { src: Plage, alt: 'Plage', span: '' },
@@ -15,6 +17,8 @@ const gallery = [
   { src: Feu, alt: 'Feu de plage', span: '' },
   { src: IMAGES.nightclub, alt: 'Boîte de nuit', span: '' },
   { src: IMAGES.basketball, alt: 'Basketball', span: '' },
+  { src: Ouidah, alt: 'Visite de Ouidah', span: '' },
+  { src: Tennis, alt: 'Tennis', span: '' },
 ]
 
 export default function AllInclusive() {

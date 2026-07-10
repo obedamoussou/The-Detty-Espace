@@ -6,7 +6,8 @@ import {
   Waves,
   Flame,
   PartyPopper,
-  Coffee,
+  Landmark,
+  Map,
   Sun,
   Users,
   Headphones,
@@ -54,12 +55,13 @@ export const HERO_TAGS: string[] = [
   'Tennis',
   'Basketball',
   'Repas',
+  "Visite de Ouidah",
 ]
 
 export const STRIP_FEATURES: Feature[] = [
   { icon: Utensils, label: 'All Inclusive' },
   { icon: Bed, label: 'Hébergement' },
-  { icon: Coffee, label: 'Tous les repas' },
+  { icon: Landmark, label: 'Visite de Ouidah' },
   { icon: Music, label: 'Activités & Soirées' },
   { icon: Basketball, label: 'Infrastructures' },
   { icon: Camera, label: 'Souvenirs inoubliables' },
@@ -74,6 +76,7 @@ export const INCLUSIONS: string[] = [
   'Feu de plage',
   'Soirée en boîte de nuit privatisée',
   'Piscine, Tennis, Basketball',
+  "Visite de Ouidah",
 ]
 
 export type Slot = { time: string; title: string; sub?: string; highlight?: boolean }
@@ -92,7 +95,9 @@ export const DAY_ONE: Slot[] = [
 export const DAY_TWO: Slot[] = [
   { time: '08h00', title: 'Buffet Petit Dejeuner' },
   { time: '10h00', title: 'Temps libre' },
-  { time: '12h00', title: 'Check out et depart du convoi pour Cotonou' },
+  { time: '12h00', title: 'Check out et depart du convoi pour Ouidah' },
+  { time: '14h00', title: 'Visite de Ouidah' },
+  { time: '17h00', title: 'Retour sur Cotonou' },
 ]
 
 export type Guest = { icon: LucideIcon; label: string }
@@ -103,6 +108,7 @@ export const GUESTS: Guest[] = [
   { icon: Camera, label: 'Photographe' },
   { icon: Video, label: 'Vidéaste' },
   { icon: Sparkles, label: 'Créateurs de contenu' },
+  { icon: Map, label: 'Guide touristique' },
 ]
 
 export type Reason = { icon: LucideIcon; label: string }
@@ -113,6 +119,7 @@ export const REASONS: Reason[] = [
   { icon: Sun, label: 'Profiter d\'un cadre exceptionnel' },
   { icon: PartyPopper, label: 'Vivre un événement exclusif' },
   { icon: Flame, label: 'Repartir avec des souvenirs inoubliables' },
+  { icon: Flame, label: 'Redecouvrir la ville de Ouidah et son histoire' },
 ]
 
 export type Faq = { q: string; a: string }

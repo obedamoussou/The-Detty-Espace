@@ -3,6 +3,8 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { NAV_LINKS } from '../data/content'
 import Logo from '../../public/Logo.png'
+import CTNVIVE from "../../public/ctnvibe.png"
+import ADDOTOUR from "../../public/addotour.png"
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -34,8 +36,10 @@ export default function Navbar() {
       }`}
     >
       <nav className="container-x flex items-center justify-between py-4">
-        <a href="#accueil" className="shrink-0">
+        <a href="#accueil" className="shrink-0 flex">
           <img src={Logo} alt="Logo" className='h-20' />
+          <img src={CTNVIVE} alt="Logo" className='h-20 pr-2' />
+          <img src={ADDOTOUR} alt="Logo" className='h-20' />
         </a>
 
         <ul className="hidden items-center gap-7 lg:flex">
