@@ -29,7 +29,7 @@ export const EVENT = {
   location: 'Grand-Popo, Bénin',
   roomsLeft: 34,
   roomsTotal: 60,
-  price: '230.000',
+  price: '245.000',
   currency: 'FCFA',
   phone: '+229 01 23 45 67 89',
   email: 'lejardinconcept@gmail.com',

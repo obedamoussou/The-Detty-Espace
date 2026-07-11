@@ -1,6 +1,8 @@
 import { MapPin, Calendar, Mail, Instagram } from 'lucide-react'
 import { EVENT } from '../data/content'
 import Logo from '../../public/Logo.png'
+import CTNVIVE from "../../public/ctnvibe.png"
+import ADDOTOUR from "../../public/addotour.png"
 
 export default function Footer() {
   return (
@@ -8,7 +10,11 @@ export default function Footer() {
       <div className="container-x py-12">
         <div className="grid gap-8 md:grid-cols-[1.2fr_1fr_1fr] md:gap-6">
           <div >
-            <img src={Logo} alt="Logo" className="h-14 w-auto" />
+            <div className='flex'>
+              <img src={Logo} alt="Logo" className="h-14 w-auto" />
+              <img src={CTNVIVE} alt="Logo" className='h-14 pr-2' />
+              <img src={ADDOTOUR} alt="Logo" className='h-14' />
+            </div>
             <p className="mt-4 max-w-xs text-sm text-sand-100/60">{EVENT.intro}</p>
           </div>
 
